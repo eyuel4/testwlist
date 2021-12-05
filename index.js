@@ -68,7 +68,9 @@ app.get('/whitelisted/member/:address', (req, res, value) => {
 
 app.put('/whitelisted/update/:address/:secret', (req, res) => {
     if(req.params.secret != process.env.SECRET_KEY){
-        res.status(404).send("Invalid Auth Key")
+        console.log(process.env.SECRET_KEY);
+        console.log(process.params.secret);
+        res.status(404).send("Invalid Auth Key " + process.env.SECRET_KEY + "/ " + AudioProcessingEvent.params.secret)
         return
     }
     let index = 0;
